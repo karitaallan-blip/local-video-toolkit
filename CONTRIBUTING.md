@@ -14,6 +14,7 @@ Local file selection is welcome: it reads a video on the user's device. Uploadin
 - Accessibility, documentation and usability improvements.
 - Mobile layout and browser compatibility fixes.
 - Small synthetic test cases and clearly explained limitations.
+- Local, optional visual overlays that keep the original pixels and the offline network boundary intact.
 
 Do not add accounts, analytics, tracking, server uploads or external API calls. Keep runtime code dependency-free using plain HTML, CSS, JavaScript and native browser APIs. Discuss new dependencies, large refactors and changed scope in an Issue before starting. Do not add identity, deepfake or authenticity verdicts unsupported by these tools.
 
@@ -33,9 +34,12 @@ Open `index.html` directly in a modern browser; no installation or backend is re
 - A normal H.264 MP4 (a four-second 320 × 180 clip is a useful baseline).
 - A very short video, an empty file and malformed or unsupported input.
 - Eight visible previews for the normal clip, JPEG download, JSON export and print preview/PDF.
+- Night-vision and false-color preview styles on synthetic frames; confirm the source JPEG and exported JSON remain unchanged and a WebGL failure reports clearly.
 - Cancellation, then selecting another file; a rejected file must not leave the tool stuck.
 - Desktop and approximately 390px mobile widths; keyboard operation, focus and readable errors.
 - Offline operation after download, no application network requests and no unexpected console errors.
+
+Do not add map tiles, Cesium CDN scripts, OCR model downloads or weather requests to this offline single-file tool without a separately reviewed change to its public privacy and network contract.
 
 Report browser and operating-system versions. Codec support and seek precision vary; requested seek positions are not guaranteed decoded frame timestamps. Include a generator command rather than a large binary fixture where possible.
 
